@@ -1,17 +1,12 @@
-with Internals.Debug;
 with Internals.IO;
 with Internals.Memory;
+with Internals.Instructions;
+with Internals.CPU;
 
 procedure Brainfuck is
+   Program : constant Internals.Instructions.Program_Type :=
+     Internals.IO.Read_File ("/home/louis/Documents/projects/brainfuck/main.bf");
 begin
    Internals.Memory.Initialize;
-   Internals.Memory.Write (0, 72);
-   Internals.Memory.Write (1, 101);
-   Internals.Memory.Write (2, 108);
-   Internals.Memory.Write (3, 108);
-   Internals.Memory.Write (4, 111);
-
-   Internals.Debug.Dump_Memory;
-
-   Internals.IO.Run ("++");
+   Internals.CPU.Execute (Program);
 end Brainfuck;

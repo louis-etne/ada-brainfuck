@@ -5,7 +5,7 @@ with Internals.Memory;
 
 package body Internals.Debug is
 
-   procedure Dump_Memory is
+   procedure Dump_Memory_ASCII is
       Result : Ada.Strings.Unbounded.Unbounded_String := Ada.Strings.Unbounded.Null_Unbounded_String;
       Memory : constant Internals.Memory.Memory_Array_Type := Internals.Memory.Dump;
       
@@ -19,6 +19,6 @@ package body Internals.Debug is
       end loop;
       
       Internals.IO.Display (Ada.Strings.Unbounded.To_String (Result));
-   end Dump_Memory;
+   end Dump_Memory_ASCII;
 
 end Internals.Debug;
